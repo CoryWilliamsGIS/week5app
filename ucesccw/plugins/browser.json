@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "w4App"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "w4App"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "w4App"
+    }
+  }
+}
