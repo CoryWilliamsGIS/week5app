@@ -1,3 +1,4 @@
+
     // load the map
 
     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -81,4 +82,7 @@
 	
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(earthquakelayer.getBounds());
-}	
+}
+//	document.addEventListener('DOMContentLoaded', function() {
+//	getEarthquakes();
+//}, false);
