@@ -82,7 +82,7 @@
 	
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(earthquakelayer.getBounds());
-}	
-	document.addEventListener('DOMContentLoaded', function() {
-	getEarthquakes();
-}, false);
+}
+//	document.addEventListener('DOMContentLoaded', function() {
+//	getEarthquakes();
+//}, false);
