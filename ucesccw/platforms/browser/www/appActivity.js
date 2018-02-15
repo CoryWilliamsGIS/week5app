@@ -86,24 +86,20 @@
 	mymap.fitBounds(earthquakelayer.getBounds());
 }
 
+// Adapted from the week 2 tutorials 
 // Function to track the users location
 function trackLocation() {
 	mymap.locate({setView: true, maxZoom: 18});
 }
 
-//Function to display and zoom to users location
+// Function to show the users position via a leaflet marker icon
 function showPosition(position) {
-L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
-}
-
-
-function showPosition(position) {
-// create a geoJSON feature -
+// create a geoJSON feature 
 		var geojsonFeature = {
 			"type": "Feature",
 			"properties": {
 			"name": "",
-			"popupContent": "This is where UCL is based"
+			"popupContent": "You are here!"
 			},
 			"geometry": {
 			"type": "Point",
@@ -111,13 +107,10 @@ function showPosition(position) {
 			}
 		};
 	
+// including the pink icon marker	
+		var testMarkerPink = L.AwesomeMarkers.icon({ icon: 'play', markerColor: 'pink' });
 	// and add it to the map
 	
 	L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
 }
 
-//navigator.geolocation.getCurrentPosition(getPosition); 
-//}
-// function to show the users position via a leaflet market 
-
-//}

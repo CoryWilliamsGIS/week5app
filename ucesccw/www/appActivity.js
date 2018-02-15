@@ -107,7 +107,7 @@ function showPosition(position) {
 			}
 		};
 	
-// includuing the pink icon marker	
+// including the pink icon marker	
 		var testMarkerPink = L.AwesomeMarkers.icon({ icon: 'play', markerColor: 'pink' });
 	// and add it to the map
 	
