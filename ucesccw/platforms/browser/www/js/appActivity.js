@@ -88,7 +88,7 @@
 
 // Function to track the users location
 function trackLocation() {
-	mymap.locate({setView: True});
+	mymap.locate({setView: true, maxZoom: 18});
 }
 
 //Function to display and zoom to users location
@@ -97,7 +97,24 @@ L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
 }
 
 
-
+function showPosition(position) {
+// create a geoJSON feature -
+		var geojsonFeature = {
+			"type": "Feature",
+			"properties": {
+			"name": "",
+			"popupContent": "This is where UCL is based"
+			},
+			"geometry": {
+			"type": "Point",
+			"coordinates": [position.coords.longitude, position.coords.latitude]
+			}
+		};
+	
+	// and add it to the map
+	
+	L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
+}
 
 //navigator.geolocation.getCurrentPosition(getPosition); 
 //}
