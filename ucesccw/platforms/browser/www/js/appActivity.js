@@ -1,7 +1,7 @@
 
     // load the map
 
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').fitWorld();
 
     // load the tiles
 
@@ -14,6 +14,8 @@
       id: 'mapbox.streets'
 	  
 	 }).addTo(mymap);
+	 
+	 mymap.locate({setView: true, maxZoom: 18});
 
 	// create a variable that will hold the XMLHttpRequest() - this must be done outside a function so that all the functions can use the same variable 
 	
@@ -83,6 +85,22 @@
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(earthquakelayer.getBounds());
 }
-//	document.addEventListener('DOMContentLoaded', function() {
-//	getEarthquakes();
-//}, false);
+
+// Function to track the users location
+function trackLocation() {
+	mymap.locate({setView: True});
+}
+
+//Function to display and zoom to users location
+function showPosition(position) {
+L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+}
+
+
+
+
+//navigator.geolocation.getCurrentPosition(getPosition); 
+//}
+// function to show the users position via a leaflet market 
+
+//}
