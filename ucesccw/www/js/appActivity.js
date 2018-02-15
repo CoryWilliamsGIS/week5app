@@ -88,7 +88,7 @@
 
 // Function to track the users location
 function trackLocation() {
-	mymap.locate({setView: True});
+	mymap.locate({setView: False});
 }
 
 //Function to display and zoom to users location
