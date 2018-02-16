@@ -101,8 +101,8 @@
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
-	//	setInterval(trackLocation, 3000);
-	//	mymap.panTo(showPosition);
+		setInterval(trackLocation, 3000);
+		mymap.panTo(showPosition);
 
 // Function to show the users position via a leaflet marker icon
 function showPosition(position) {
@@ -125,9 +125,9 @@ function showPosition(position) {
 	// and add it to the map
 	userLocation = L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
 	
-	var watchId = navigator.geolocation.watchPosition(showPosition);
-	// change the map zoom so that all the data is shown
-	// mymap.fitBounds(userLocation.getBounds());
+	
+	//change the map zoom so that all the data is shown
+	mymap.fitBounds(userLocation.getBounds());
 }
 
 // Remove current user position, recalculate and update map every 3 seconds 
