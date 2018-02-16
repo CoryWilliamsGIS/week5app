@@ -102,7 +102,7 @@
     }
 }
 		setInterval(trackLocation, 3000);
-		mymap.panTo(trackLocation);
+		mymap.panTo(showPosition);
 
 // Function to show the users position via a leaflet marker icon
 function showPosition(position) {
@@ -131,9 +131,9 @@ function showPosition(position) {
 
 // Remove current user position, recalculate and update map every 3 seconds 
 //Adapted from: https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet 
-function updateUserLocation() {
+function updateUserLocation(e) {
 	if (trackLocation) {
-		map.remove(testMarkerPink);
+		map.remove(showPosition);
 	}
 }
 
