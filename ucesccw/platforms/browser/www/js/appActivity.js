@@ -101,7 +101,7 @@
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
-		setInterval(trackLocation, 3000);
+		//setInterval(trackLocation, 3000);
 		mymap.panTo(showPosition);
 		//var watchID = navigator.geolocation.watchPosition(trackLocation);
 // Function to show the users position via a leaflet marker icon
