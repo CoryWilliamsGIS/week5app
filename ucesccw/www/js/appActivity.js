@@ -125,8 +125,7 @@ function showPosition(position) {
 	
 	// and add it to the map
 	userLocation = L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
-	mymap.remove(userLocation)
-	update(userLocation)
+	userLocation.update();
 	//change the map zoom so that all the data is shown
 	mymap.fitBounds(userLocation.getBounds());
 }
