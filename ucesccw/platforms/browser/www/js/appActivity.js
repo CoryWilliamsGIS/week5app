@@ -108,7 +108,7 @@
 function showPosition(position) {
 	
 // create a geoJSON feature 
-		var geojsonFeature = new {
+		var geojsonFeature = {
 			"type": "Feature",
 			"properties": {
 			"name": "",
@@ -126,7 +126,7 @@ function showPosition(position) {
 	// and add it to the map
 	userLocation = L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
 	
-	
+	update(userLocation)
 	//change the map zoom so that all the data is shown
 	mymap.fitBounds(userLocation.getBounds());
 }
