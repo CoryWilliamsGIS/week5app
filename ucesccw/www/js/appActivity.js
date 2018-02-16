@@ -102,6 +102,7 @@
     }
 }
 		setInterval(trackLocation, 3000);
+		mymap.panTo(trackLocation);
 
 // Function to show the users position via a leaflet marker icon
 function showPosition(position) {
