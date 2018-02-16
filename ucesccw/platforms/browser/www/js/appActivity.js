@@ -134,7 +134,7 @@ function showPosition(position) {
 //Adapted from: https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet 
 function updateUserLocation(e) {
 	if (showPosition) {
-		map.remove(showPosition);
+		mymap.remove(showPosition);
 	}
 }
 
