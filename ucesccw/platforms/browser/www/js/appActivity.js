@@ -106,8 +106,9 @@
 		//var watchID = navigator.geolocation.watchPosition(trackLocation);
 // Function to show the users position via a leaflet marker icon
 function showPosition(position) {
+	
 // create a geoJSON feature 
-		var geojsonFeature = {
+		var geojsonFeature = new {
 			"type": "Feature",
 			"properties": {
 			"name": "",
