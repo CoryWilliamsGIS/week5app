@@ -101,6 +101,7 @@
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+		setInterval(trackLocation, 3000);
 
 // Function to show the users position via a leaflet marker icon
 function showPosition(position) {
@@ -126,4 +127,13 @@ function showPosition(position) {
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(userLocation.getBounds());
 }
+
+// Remove current user position, recalculate and update map every 3 seconds 
+//Adapted from: https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet 
+//function updateUserLocation() {
+	//if (trackLocation) {
+		//map.remove(testMarkerPink);
+//	}
+
+	
 
