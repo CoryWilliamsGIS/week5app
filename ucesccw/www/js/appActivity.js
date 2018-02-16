@@ -94,49 +94,20 @@
 
 //Try another method from - https://www.w3schools.com/html/html5_geolocation.asp 
 
-	function trackLocation() {
-		if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-	setInterval(trackLocation, 1000);
-	mymap.panTo(showPosition);
-		//var watchID = navigator.geolocation.watchPosition(trackLocation);
-// Function to show the users position via a leaflet marker icon
-function showPosition(position) {
-	
-// create a geoJSON feature 
-		var geojsonFeature = {
-			"type": "Feature",
-			"properties": {
-			"name": "",
-			"popupContent": "You are here!"
-			},
-			"geometry": {
-			"type": "Point",
-			"coordinates": [position.coords.longitude, position.coords.latitude]
-			}
-		};
-	
-		// including the pink icon marker	
-		var testMarkerPink = L.AwesomeMarkers.icon({ icon: 'play', markerColor: 'pink' });
-	
-	// and add it to the map
-	userLocation = L.geoJSON(geojsonFeature, { pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon:testMarkerPink}) } }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+""+geojsonFeature.properties.popupContent+"<b>");
-	userLocation.update();
-	//change the map zoom so that all the data is shown
-	mymap.fitBounds(userLocation.getBounds());
-}
+      function onLocationFound(e) {
+      //   var radius = e.accuracy / 2;
+         var location = e.latlng
+         L.marker(location).addTo(map)
+         L.circle(location, radius).addTo(map);
+      }
 
-// Remove current user position, recalculate and update map every 3 seconds 
-//Adapted from: https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet 
-function updateUserLocation(e) {
-	if (showPosition) {
-		mymap.remove(showPosition);
-	}
-}
+      function onLocationError(e) {
+         alert(e.message);
+      }
 
-	
+      function getLocationLeaflet() {
+         map.on('locationfound', onLocationFound);
+         map.on('locationerror', onLocationError);
 
+         map.locate({setView: true, maxZoom: 16});
+	  }
