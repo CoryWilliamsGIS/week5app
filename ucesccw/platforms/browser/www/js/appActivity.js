@@ -130,10 +130,11 @@ function showPosition(position) {
 
 // Remove current user position, recalculate and update map every 3 seconds 
 //Adapted from: https://gis.stackexchange.com/questions/182068/getting-current-user-location-automatically-every-x-seconds-to-put-on-leaflet 
-//function updateUserLocation() {
-	//if (trackLocation) {
-		//map.remove(testMarkerPink);
-//	}
+function updateUserLocation() {
+	if (trackLocation) {
+		map.remove(testMarkerPink);
+	}
+}
 
 	
 
