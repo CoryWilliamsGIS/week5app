@@ -1,7 +1,7 @@
+    //appActivity.js code from week4 repository
+	// load the map
 
-    // load the map
-
-    var mymap = L.map('mapid').fitWorld();
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
     // load the tiles
 
@@ -14,8 +14,6 @@
       id: 'mapbox.streets'
 	  
 	 }).addTo(mymap);
-	 
-	 mymap.locate({setView: true, maxZoom: 18});
 
 	// create a variable that will hold the XMLHttpRequest() - this must be done outside a function so that all the functions can use the same variable 
 	
@@ -85,29 +83,46 @@
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(earthquakelayer.getBounds());
 }
+//	document.addEventListener('DOMContentLoaded', function() {
+//	getEarthquakes();
+//}, false);
 
-// Adapted from the week 2 tutorials 
-// Function to track the users location
-//function trackLocation() {
-//	mymap.locate({setView: true, maxZoom: 18});
-//}
 
-//Try another method from - https://www.w3schools.com/html/html5_geolocation.asp 
+//testing with AJAX code from week5server repository
+var xhr; // define the global variable to process the AJAX request
+function callDivChange() {
+xhr = new XMLHttpRequest();
+//get the content out of the text box (as defined in testAJAX.html
+//send it to the server
+var filename = document.getElementById("filename").value;
+xhr.open("GET", filename, true);
+xhr.onreadystatechange = processDivChange;
+try {
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+}
+catch (e) {
+// this only works in internet explorer
+}
+xhr.send();
+xhr.onreadystatechange = processDivChange;
+try {
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+}
+catch (e) {
+// this only works in internet explorer
+}
+xhr.send();
+}
+function processDivChange() {
+if (xhr.readyState < 4) // while waiting response from server
+document.getElementById('div1').innerHTML = "Loading...";
+else if (xhr.readyState === 4) { // 4 = Response from server has been completely loaded.
+if (xhr.status == 200 && xhr.status < 300)
+// http status between 200 to 299 are all successful
+document.getElementById('div1').innerHTML = xhr.responseText;
+}
+}
 
-      function onLocationFound(e) {
-      //   var radius = e.accuracy / 2;
-         var location = e.latlng
-         L.marker(location).addTo(map)
-         L.circle(location, radius).addTo(map);
-      }
 
-      function onLocationError(e) {
-         alert(e.message);
-      }
 
-      function getLocationLeaflet() {
-         map.on('locationfound', onLocationFound);
-         map.on('locationerror', onLocationError);
 
-         map.locate({setView: true, maxZoom: 16});
-	  }
