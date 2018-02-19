@@ -1,2 +1,1 @@
-# week4
-Adding a Leaflet Map to the template, tracking the user's location and adding GeoJSON layers to the map
+Repository for the last stage of the week 5 practical for the module CEGEG077: Web and Mobile GIS - Apss & Programming. This repository was initialised with an import from the 'week4' repository.
